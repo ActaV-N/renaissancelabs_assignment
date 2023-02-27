@@ -1,12 +1,14 @@
 import { useWeb3React } from '@web3-react/core';
 import {metamaskConnector} from '@/lib/connector'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Profile from '.';
 
 const MetamaskProfile = () => {
+    // Loading state
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     // Web3 variables
-    const {activate, deactivate, active, account} = useWeb3React();
-
+    const {activate, deactivate, active, account, library, error} = useWeb3React();
+    
     // Metamask connect
     const handleConnect = () => {
         if((window as any).ethereum === undefined){
@@ -20,13 +22,33 @@ const MetamaskProfile = () => {
         
         // Connect with metamask connector
         activate(metamaskConnector);
+        localStorage.setItem('chainType', 'ethereum');
     }
+
+    const handleDisconnect = () => {
+        deactivate();
+        localStorage.removeItem('chainType')
+    }
+
+    // Keep connection
+    useEffect(() => {
+        const chainType = localStorage.getItem('chainType');
+        
+        if(chainType === 'ethereum'){
+            activate(metamaskConnector);
+        } else{
+            deactivate();
+        }
+        setIsLoading(false)
+    }, [activate])
 
     return <Profile
         active={active}
         account={account}
-        deactivate={deactivate}
+        handleDisconnect={handleDisconnect}
         handleConnect={handleConnect}
+        library={library}
+        isLoading={isLoading}
     />
 }
 
