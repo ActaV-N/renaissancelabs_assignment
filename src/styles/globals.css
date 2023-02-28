@@ -2,6 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face{
+    font-family: "Airbnb cereal";
+    font-weight: 300;
+    src: url("/fonts/airbnb-cereal-font/AirbnbCereal_W_Lt.otf") format("truetype");
+}
+
+@font-face{
+    font-family: "Airbnb cereal";
+    font-weight: 400;
+    src: url("/fonts/airbnb-cereal-font/AirbnbCereal_W_Bk.otf") format("truetype");
+}
+
+@font-face{
+    font-family: "Airbnb cereal";
+    font-weight: 500;
+    src: url("/fonts/airbnb-cereal-font/AirbnbCereal_W_Md.otf") format("truetype");
+}
+
+@font-face{
+    font-family: "Airbnb cereal";
+    font-weight: 600;
+    src: url("/fonts/airbnb-cereal-font/AirbnbCereal_W_Bd.otf") format("truetype");
+}
+
+@font-face{
+    font-family: "Airbnb cereal";
+    font-weight: 700;
+    src: url("/fonts/airbnb-cereal-font/AirbnbCereal_W_XBd.otf") format("truetype");
+}
+
+@font-face{
+    font-family: "Airbnb cereal";
+    font-weight: 800;
+    src: url("/fonts/airbnb-cereal-font/AirbnbCereal_W_Blk.otf") format("truetype");
+}
+
 html{
     font-size:15px;
+    font-family: 'Airbnb cereal';
 }

@@ -85,7 +85,7 @@ export const TabItem:React.FC<TabItemProps> = ({children, value}) => {
 
     return <button ref={buttonRef} className='relative h-full flex items-center justify-center px-2 mr-5 md:mr-[4.5vw] last:mr-0' onClick={handleTabChange}>
         {children}
-        <div className='active-bar w-full h-[2px] absolute bottom-0 bg-black origin-center scale-x-0'></div>
+        <div className='active-bar w-full h-[2px] absolute bottom-[-1px] bg-black origin-center scale-x-0'></div>
     </button>
 }
 

@@ -6,14 +6,15 @@ interface Props{
     open: boolean,
     children: React.ReactNode,
     tails?: string,
-    handleSubmit?: Function
+    handleSubmit?: Function,
+    handleClose?: Function
 }
 
 /**
  * Utility tooltip container
  * call `handleSubmit` function when it's closed
  */
-const FadeContainer:React.FC<Props> = ({open, children, tails, handleSubmit}) => {
+const FadeContainer:React.FC<Props> = ({open, children, tails, handleSubmit, handleClose}) => {
     // Submit state
     const [isSubmitOccured, setIsSubmitOccured] = useState<boolean>(false);
     // Open state
@@ -77,6 +78,7 @@ const FadeContainer:React.FC<Props> = ({open, children, tails, handleSubmit}) =>
                 
                 if(isOpen && !container.contains(clickedArea)){
                     setIsOpen(false);
+                    handleClose && handleClose();
                 }
             }
         }
