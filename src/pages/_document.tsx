@@ -1,3 +1,4 @@
+import MetamaskProfile from '@/components/Profile/MetamaskProfile'
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
