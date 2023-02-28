@@ -97,21 +97,21 @@ export const arts:ArtI[] = [
         id:12,
         name:'Being as Nothing',
         price: 0.024,
-        src: '/nogorup/nogroup-1.avif',
+        src: '/nogroup/nogroup-1.avif',
         collectionRef: -1
     },
     {
         id:13,
         name:'OG:Crystals',
         price: 0.024,
-        src: '/nogorup/nogroup-2.avif',
+        src: '/nogroup/nogroup-2.avif',
         collectionRef: -1
     },
     {
         id:14,
         name:'Circuits',
         price: 0.024,
-        src: '/nogorup/nogroup-3.avif',
+        src: '/nogroup/nogroup-3.avif',
         collectionRef: -1
     },
     {

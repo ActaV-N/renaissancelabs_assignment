@@ -7,6 +7,13 @@ import CollectionCard from '@/components/Cards/Collection/CollectionCard'
 import { arts, collections } from '@/data/mockData'
 import Text from '@/components/Typography/Text'
 import SingleCard from '@/components/Cards/Single/SingleCard'
+import CardList from '@/components/Cards/CardList'
+
+export enum TabEnum{
+  'all',
+  'collections',
+  'singles'
+}
 
 const Tabs = [
   {
@@ -27,9 +34,9 @@ const Tabs = [
 ]
 
 export default function Home() {
-  const [currentTab, setCurrentTab] = useState('all');
+  const [currentTab, setCurrentTab] = useState<keyof typeof TabEnum>('all');
 
-  const handleCurrentTab = (tabName: string) => {
+  const handleCurrentTab = (tabName: keyof typeof TabEnum) => {
     setCurrentTab(tabName)
   }
 
@@ -52,9 +59,7 @@ export default function Home() {
       <main>
         <Content>
           <WidthSetter tails='py-20'>
-            <CollectionCard collection={collections[0]} />
-            <CollectionCard collection={collections[1]} />
-            <SingleCard art={arts[0]} />
+            <CardList showType={currentTab} />
           </WidthSetter>
         </Content>
       </main>
