@@ -1,4 +1,4 @@
-import MetamaskProfile from '@/components/Profile/MetamaskProfile'
+import Header from '@/components/Layout/Header'
 import '@/styles/globals.css'
 import { ExternalProvider, JsonRpcFetchFunc, Web3Provider } from '@ethersproject/providers'
 import { Web3ReactProvider } from '@web3-react/core'
@@ -10,7 +10,7 @@ const getLibrary = (provider: ExternalProvider | JsonRpcFetchFunc) => {
 
 export default function App({ Component, pageProps }: AppProps) {
   return <Web3ReactProvider getLibrary={getLibrary}>
-    <MetamaskProfile/>
+    <Header />
     <Component {...pageProps} />
   </Web3ReactProvider>
 }

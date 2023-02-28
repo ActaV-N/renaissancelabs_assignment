@@ -74,7 +74,7 @@ const Profile:React.FC<Props> = ({
                 <FiChevronDown/>
             </div>
         </div>
-        <FadeActionTooltip handleSubmit={active ? handleDisconnect : handleConnect} open={isOpen} tails={`absolute bottom-0 right-0 translate-y-[100%] pt-[15px] w-[max-content]`}>
+        <FadeActionTooltip handleSubmit={active ? handleDisconnect : handleConnect} open={isOpen} tails={`absolute bottom-0 right-0 translate-y-[100%] pt-[15px] w-[max-content] z-30`}>
             <ShadowContainer tails="w-[250px]">
                     {active ? 
                     <AfterLogin account={account} handleClose={handleClose} />:
