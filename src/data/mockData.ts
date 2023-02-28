@@ -114,6 +114,13 @@ export const arts:ArtI[] = [
         src: '/nogorup/nogroup-3.avif',
         collectionRef: -1
     },
+    {
+        id:15,
+        name:'ControlNet#512',
+        price: 0.024,
+        src: '/controlnet/controlnet-6.avif',
+        collectionRef: 1
+    },
 ]
 
 export const collections: CollectionI[] = [
