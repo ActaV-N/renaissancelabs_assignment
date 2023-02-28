@@ -4,8 +4,9 @@ import { useState } from 'react'
 import WidthSetter from '@/components/Container/WidthSetter'
 import Content from '@/components/Layout/Content'
 import CollectionCard from '@/components/Cards/Collection/CollectionCard'
-import { collections } from '@/data/mockData'
+import { arts, collections } from '@/data/mockData'
 import Text from '@/components/Typography/Text'
+import SingleCard from '@/components/Cards/Single/SingleCard'
 
 const Tabs = [
   {
@@ -53,6 +54,7 @@ export default function Home() {
           <WidthSetter tails='py-20'>
             <CollectionCard collection={collections[0]} />
             <CollectionCard collection={collections[1]} />
+            <SingleCard art={arts[0]} />
           </WidthSetter>
         </Content>
       </main>

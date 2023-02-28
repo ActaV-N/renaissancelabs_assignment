@@ -12,7 +12,7 @@ const CollectionCount:React.FC<Props> = ({count}) => {
     if(count <= 5) return <></>
 
     return <Text face='urbanist' weight='bold' tails="min-w-[50px] text-center text-[13px] absolute bottom-0 right-0 rounded-br-[9px] rounded-tl-[10px] m-1 p-1.5 bg-slate-100">
-        + {unitAbbreviation(count - 5)}
+        + {unitAbbreviation(count - 5, true)}
     </Text>
 }
 
