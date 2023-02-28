@@ -7,6 +7,18 @@ module.exports = {
                 basic: "0 0 60px 4px rgba(0, 0, 0, 0.2)",
             },
         },
+        colors: {
+            white: "#fff",
+            black: "#000",
+            slate: {
+                50: "#ebebeb",
+                200: "#808191",
+                400: "#797a7e",
+                600: "#4c4d53",
+                800: "#444444",
+                900: "#1b1d21",
+            },
+        },
     },
     plugins: [],
 };

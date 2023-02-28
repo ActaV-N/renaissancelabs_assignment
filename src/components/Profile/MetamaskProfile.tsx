@@ -32,15 +32,33 @@ const MetamaskProfile = () => {
 
     // Keep connection
     useEffect(() => {
-        const chainType = localStorage.getItem('chainType');
-        
-        if(chainType === 'ethereum'){
-            activate(metamaskConnector);
-        } else{
-            deactivate();
+        const checkConnection = async () => {
+            const authorized = await metamaskConnector.isAuthorized();
+            const chainType = localStorage.getItem('chainType');
+            
+            try{
+                if(authorized){
+                    if(chainType === 'ethereum'){
+                        activate(metamaskConnector);
+                    } else{
+                        deactivate();
+                    }
+                } else{
+                    if(chainType === 'ethereum'){
+                        deactivate();
+                        localStorage.removeItem('chainType');
+                    }
+                }
+
+                setIsLoading(false);
+            } catch(error){
+                console.log(error)
+                setIsLoading(false)
+            }
         }
-        setIsLoading(false)
-    }, [activate])
+
+        checkConnection();
+    }, [activate, error])
 
     return <Profile
         active={active}

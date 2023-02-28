@@ -6,6 +6,8 @@ import ShadowContainer from '../Container/ShadowContainer';
 import AfterLogin from './Login/AfterLogin';
 import BeforeLogin from './Login/BeforeLogin';
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
+import EtherIcon from '../Icon/EtherIcon';
+import Text from '../Typography/Text';
 
 interface Props{
     active: boolean,
@@ -57,12 +59,12 @@ const Profile:React.FC<Props> = ({
         <div className='text-[#7E7F7F] flex items-center justify-center pointer w-fit' onClick={toggleOpen}>
             {active && 
             <div className='flex items-center mr-5'>
-                <div className='w-[25px] h-[25px] mx-2 bg-[#ebedfc] rounded-full flex items-center justify-center'>
-                    <img className='w-3/4 h-3/4' src='/ethereum.png' alt='ether' />
+                <div className='mx-2'>
+                    <EtherIcon/>
                 </div>
-                <div className='text-[#444444]'>
+                <Text slate='slate-800' weight='semibold'>
                     {balance} ETH
-                </div>
+                </Text>
             </div>}
             <div className='w-[40px] h-[40px] rounded-full bg-[#d2d3d4] text-[#545455] flex items-center justify-center'>
                 {active && account ?
@@ -74,7 +76,7 @@ const Profile:React.FC<Props> = ({
                 <FiChevronDown/>
             </div>
         </div>
-        <FadeActionTooltip handleSubmit={active ? handleDisconnect : handleConnect} open={isOpen} tails={`absolute bottom-0 right-0 translate-y-[100%] pt-[15px] w-[max-content] z-30`}>
+        <FadeActionTooltip handleClose={handleClose} handleSubmit={active ? handleDisconnect : handleConnect} open={isOpen} tails={`absolute bottom-0 right-0 translate-y-[100%] pt-[15px] w-[max-content] z-30`}>
             <ShadowContainer tails="w-[250px]">
                     {active ? 
                     <AfterLogin account={account} handleClose={handleClose} />:
