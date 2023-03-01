@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
@@ -11,8 +12,10 @@ interface Props{
 }
 
 const EtherIcon:React.FC<Props> = ({size='normal'}) => {
-    return <div className={twMerge(SizeEnum[size], `bg-[#ebedfc] rounded-full flex items-center justify-center`)}>
-        <img className='w-3/4 h-3/4' src='/ethereum.png' alt='ether' />
+    return <div className={twMerge(SizeEnum[size], `bg-token-ether rounded-full flex items-center justify-center`)}>
+        <div className='w-3/4 h-3/4 relative'>
+            <Image src='/ethereum.png' alt='ether' fill sizes={"25px"} />
+        </div>
     </div>
 }
 

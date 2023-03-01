@@ -2,7 +2,6 @@ import WidthSetter from '@/components/Container/WidthSetter';
 import gsap from 'gsap';
 import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
 import {createPortal} from 'react-dom';
-import { twMerge } from 'tailwind-merge';
 
 // Tab Context
 const TabContext = createContext<[string, Function]>(['', () => {}]);
@@ -26,9 +25,15 @@ const Tab:React.FC<Props> = ({children, onChange, defaultValue=''}) => {
     }, [])
 
     // handleTabChange
+    // Scroll to top when tab changed
+    const isBrowser = () => typeof window !== 'undefined';
     const handleTabChange = (tabValue: string) => {
         setTab(tabValue);
         onChange(tabValue);
+        
+        // Scroll to top
+        if(!isBrowser()) return;
+        window.scrollTo({top:0});
     }
 
     // If There is no headerEl, return nothing.
@@ -81,7 +86,7 @@ export const TabItem:React.FC<TabItemProps> = ({children, value}) => {
                 })
             }
         }, buttonRef)
-    }, [currentTab])
+    }, [currentTab, value])
 
     return <button ref={buttonRef} className='relative h-full flex items-center justify-center px-2 mr-5 md:mr-[4.5vw] last:mr-0' onClick={handleTabChange}>
         {children}

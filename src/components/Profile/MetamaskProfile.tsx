@@ -58,7 +58,7 @@ const MetamaskProfile = () => {
         }
 
         checkConnection();
-    }, [activate, error])
+    }, [activate, error, deactivate])
 
     return <Profile
         active={active}

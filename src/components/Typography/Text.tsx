@@ -13,11 +13,12 @@ enum WeightEnum{
 
 // Font slate Enum
 enum SlateEnum{
-    "slate-200"='text-slate-200',
-    "slate-400"='text-slate-400',
-    "slate-600"='text-slate-600',
-    "slate-800"='text-slate-800',
-    "slate-900"='text-slate-900',
+    "black-600"='text-black-600',
+    "black-500"='text-black-500',
+    "black-400"='text-black-400',
+    "black-300"='text-black-300',
+    "black-200"="text-black-200",
+    "black-100"='text-black-100',
     "black"='text-black'
 }
 
