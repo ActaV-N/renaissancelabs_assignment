@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 interface Props{
@@ -6,10 +7,10 @@ interface Props{
 }
 
 const CollectionImage:React.FC<Props> = ({main = false, src}) => {
-    return <div className={`${main && 'col-span-2 row-span-2'} aspect-square`}>
+    return <div className={`${main && 'col-span-2 row-span-2'} relative aspect-square`}>
         {src ? 
-        <img src={src} alt="collection Image" className='rounded-[10px]' />:
-        <div className='rounded-[10px] bg-[#e4e4e4] w-full h-full'></div>}
+        <Image fill sizes={"160px"} src={src} alt="collection Image" className='rounded-10' />:
+        <div className='rounded-10 bg-white-200 w-full h-full'></div>}
     </div>
 }
 

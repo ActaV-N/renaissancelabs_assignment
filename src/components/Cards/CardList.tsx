@@ -1,11 +1,12 @@
 import { ArtI, CollectionI } from '@/data/interfaces';
 import { arts, collections } from '@/data/mockData';
-import { TabEnum } from '@/pages';
 import React, { useEffect, useState } from 'react';
 import CardContainer from '../Container/CardContainer';
+import { TabEnum } from '../Layout/Header/Tabs/HomeTab';
 import Text from '../Typography/Text';
 import CollectionCard from './Collection/CollectionCard';
 import SingleCard from './Single/SingleCard';
+import DotLoader from 'react-spinners/DotLoader';
 
 interface Props{
     showType: keyof typeof TabEnum
@@ -30,7 +31,9 @@ const CardList:React.FC<Props> = ({showType}) => {
         setIsLoading(false);
     }, [showType])
 
-    if(isLoading) return <>Loading...</>
+    if(isLoading) return <div className='h-52 flex items-center justify-center'>
+        <DotLoader/> 
+    </div>
 
     return <div>
         {(showType === 'all' || showType === 'collections') &&
@@ -39,7 +42,7 @@ const CardList:React.FC<Props> = ({showType}) => {
                 Collections
             </Text>
             <CardContainer>
-                {collectionData.map(item => <CollectionCard collection={item}/>)}
+                {collectionData.map(item => <CollectionCard key={item.id} collection={item}/>)}
             </CardContainer>
         </div>}
         {(showType === 'all' || showType === 'singles') &&
@@ -48,7 +51,7 @@ const CardList:React.FC<Props> = ({showType}) => {
                 Arts
             </Text>
             <CardContainer>
-                {artData.map(item => <SingleCard art={item}/>)}
+                {artData.map(item => <SingleCard key={item.id} art={item}/>)}
             </CardContainer>
         </div>}
     </div>

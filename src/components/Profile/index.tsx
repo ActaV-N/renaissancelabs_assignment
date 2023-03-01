@@ -8,6 +8,7 @@ import BeforeLogin from './Login/BeforeLogin';
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
 import EtherIcon from '../Icon/EtherIcon';
 import Text from '../Typography/Text';
+import PuffLoader from 'react-spinners/PuffLoader';
 
 interface Props{
     active: boolean,
@@ -41,7 +42,7 @@ const Profile:React.FC<Props> = ({
 
             getBalance();
         }
-    }, [library])
+    }, [library, account])
 
     // Toggle open state of connect tooltip
     const toggleOpen = () => {
@@ -53,24 +54,23 @@ const Profile:React.FC<Props> = ({
         setIsOpen(false);
     }
 
-    if(isLoading) return <div>Loading...</div>
+    if(isLoading) return <PuffLoader size="40px" />
 
     return <div className='relative w-fit ml-auto'>
-        <div className='text-[#7E7F7F] flex items-center justify-center pointer w-fit' onClick={toggleOpen}>
+        <div className='text-black-600 flex items-center justify-center pointer w-fit' onClick={toggleOpen}>
             {active && 
             <div className='flex items-center mr-5'>
                 <div className='mx-2'>
                     <EtherIcon/>
                 </div>
-                <Text slate='slate-800' weight='semibold'>
+                <Text slate='black-300' weight='semibold'>
                     {balance} ETH
                 </Text>
             </div>}
-            <div className='w-[40px] h-[40px] rounded-full bg-[#d2d3d4] text-[#545455] flex items-center justify-center'>
+            <div className='w-[40px] h-[40px] rounded-full bg-white-300 text-black-600 flex items-center justify-center'>
                 {active && account ?
                 <Jazzicon diameter={40} seed={jsNumberForAddress(account)} />:
                 <FaUser/>}
-                
             </div>
             <div className='ml-2 text-xl'>
                 <FiChevronDown/>

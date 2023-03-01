@@ -10,7 +10,7 @@ interface Props{
 
 const CollectionContent:React.FC<Props> = ({name, price, marketCap}) => {
     return <div className='px-3 py-1'>
-        <Text tails='py-3' face='urbanist' weight='bold' slate='slate-900'>
+        <Text tails='py-3' face='urbanist' weight='bold' slate='black-100'>
             {name}
         </Text>
         <div className='flex items-center mb-3'>

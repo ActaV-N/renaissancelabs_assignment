@@ -65,7 +65,7 @@ const FadeContainer:React.FC<Props> = ({open, children, tails, handleSubmit, han
                 })
             }, containerRef)
         }
-    }, [isOpen, containerRef, isSubmitOccured])
+    }, [isOpen, containerRef, isSubmitOccured, handleSubmit])
 
     useEffect(() => {
         // Fade out when outside of the container clicked clicked
@@ -90,7 +90,7 @@ const FadeContainer:React.FC<Props> = ({open, children, tails, handleSubmit, han
         return () => {
             document.removeEventListener('click', handleOutsideClick);
         }
-    }, [containerRef, isOpen])
+    }, [containerRef, isOpen, handleClose])
 
     return <form className={
         twMerge('opacity-0 invisible', tails)}

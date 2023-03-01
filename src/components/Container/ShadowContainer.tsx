@@ -7,7 +7,7 @@ interface Props{
 }
 
 const ShadowContainer:React.FC<Props> = ({tails, children}) => {
-    return <div className={twMerge('bg-white rounded-[8px] shadow-basic p-6', tails)}>
+    return <div className={twMerge('bg-white rounded-lg shadow-basic p-6', tails)}>
         {children}
     </div>
 }
