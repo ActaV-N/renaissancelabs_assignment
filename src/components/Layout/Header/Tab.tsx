@@ -1,4 +1,4 @@
-import WidthSetter from '@/components/Container/WidthSetter';
+import WidthSetter from '@/components/Layout/WidthSetter';
 import gsap from 'gsap';
 import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
 import {createPortal} from 'react-dom';

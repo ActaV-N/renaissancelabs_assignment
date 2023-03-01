@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useState } from 'react'
-import WidthSetter from '@/components/Container/WidthSetter'
+import WidthSetter from '@/components/Layout/WidthSetter'
 import Content from '@/components/Layout/Content'
 import CardList from '@/components/Cards/CardList'
 import HomeTab, { TabEnum } from '@/components/Layout/Header/Tabs/HomeTab'
